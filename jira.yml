@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Create an issue
+      jira:
+        uri: 'uri'
+        username: 'username'
+        password: 'passwd'
+        project: 'project name'
+        operation: create
+        summary: Ansible Issue
+        description: Created using Ansible
+        issuetype: Task
+        timeout: 30
+      register: issue
