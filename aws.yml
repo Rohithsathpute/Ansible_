@@ -1,0 +1,15 @@
+---
+- hosts: localhost 
+  tasks:
+    - name: Create EC2 instance
+      ec2:
+         key_name: rohit-key
+         region: us-east-1
+         image: ami-60093e1f 
+         count: 1
+         monitoring: no
+         instance_type: t2.micro
+         aws_access_key: "{{ lookup('env','AWS_ACCESS_KEY') }}"
+         aws_secret_key: "{{ lookup('env','AWS_SECRET_KEY') }}"
+
+     
